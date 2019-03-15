@@ -28,6 +28,15 @@ class PegawaiController extends Controller
 
     // method untuk insert data ke table pegawai
     public function store(Request $request){
+      
+        // validasi input data
+        $this->validate($request,[
+            'nama' => 'required|min:5|max:50',
+            'jabatan' => 'required',
+            'umur' => 'required|numeric',
+            'alamat' => 'required|min:5|max:100'
+         ]);
+      
         // insert data ke table pegawai
         DB::table('pegawai')->insert([
             'pegawai_nama' => $request->nama,
@@ -35,6 +44,7 @@ class PegawaiController extends Controller
             'pegawai_umur' => $request->umur,
             'pegawai_alamat' => $request->alamat
         ]);
+
         // alihkan halaman ke halaman pegawai
         return redirect('/pegawai');
 
@@ -53,6 +63,14 @@ class PegawaiController extends Controller
         // update data pegawai
     public function update(Request $request)
     {
+
+        $this->validate($request,[
+            'nama' => 'required|min:5|max:50',
+            'jabatan' => 'required',
+            'umur' => 'required|numeric',
+            'alamat' => 'required|min:5|max:100'
+         ]);
+         
         // update data pegawai
         DB::table('pegawai')->where('pegawai_id',$request->id)->update([
             'pegawai_nama' => $request->nama,

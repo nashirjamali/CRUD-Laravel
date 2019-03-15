@@ -19,6 +19,18 @@
                 <div class="card-body">
                     <h3>Update Data Pegawai</h3>
 
+                     <!-- menampilkan error validasi -->
+                     @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+                    
+                    <!-- form -->
                     @foreach($pegawai as $p)
                     <form action="/pegawai/update" method="post">
                         {{ csrf_field() }}
@@ -39,7 +51,7 @@
                             <label for="exampleFormControlTextarea1">Alamat</label>
                             <textarea name="alamat" required="required" class="form-control" id="exampleFormControlTextarea1" rows="3">{{ $p->pegawai_alamat }}</textarea>
                         </div>
-
+                        <!-- form -->
 
                         <div class="row">
                             <div class="col-sm-8">
