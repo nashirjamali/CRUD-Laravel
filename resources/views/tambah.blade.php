@@ -19,25 +19,39 @@
                 <div class="card-body">
                     <h3>Input Data Pegawai</h3>
 
+                    <!-- menampilkan error validasi -->
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
+
+                    <!-- form -->
+                    
                     <form action="/pegawai/store" method="post">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="exampleInputNama">Nama</label>
-                            <input type="text" name="nama" required="required" class="form-control" id="exampleInputNama" placeholder="Nama">
+                            <input type="text" name="nama" required="required" class="form-control" id="exampleInputNama" placeholder="Nama" value="{{ old('nama') }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputJabatan">Jabatan</label>
-                            <input type="text" name="jabatan" required="required" class="form-control" id="exampleInputJabatan" placeholder="Jabatan">
+                            <input type="text" name="jabatan" required="required" class="form-control" id="exampleInputJabatan" placeholder="Jabatan" value="{{ old('jabatan') }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputJabatan">Umur</label>
-                            <input type="number" name="umur" required="required" class="form-control" id="exampleInputUmur" placeholder="Umur">
+                            <input type="number" name="umur" required="required" class="form-control" id="exampleInputUmur" placeholder="Umur" value="{{ old('umur') }}">
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Alamat</label>
-                            <textarea name="alamat" required="required" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat"></textarea>
+                            <textarea type ="textarea" name="alamat" required="required" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Alamat">{{ old('alamat') }}</textarea>
                         </div>
 
+                        <!-- form -->
 
                         <div class="row">
                             <div class="col-sm-8">
