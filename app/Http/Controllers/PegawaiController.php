@@ -81,7 +81,7 @@ class PegawaiController extends Controller
  
     		// mengambil data dari table pegawai sesuai pencarian data
 		$pegawai = DB::table('pegawai')
-		->where('pegawai_nama','like',"%".$cari."%")
+		->where('pegawai_nama','like', "%".$cari."%")
 		->paginate(10);
  
     		// mengirim data pegawai ke view index
