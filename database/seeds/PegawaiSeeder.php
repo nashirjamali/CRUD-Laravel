@@ -23,7 +23,7 @@ class PegawaiSeeder extends Seeder
         	DB::table('pegawai')->insert([
                 'pegawai_nama' => $faker->name,
                 'pegawai_jabatan' => $faker->jobTitle,
-                'pegawai_umur' => $faker->numberBetween(25,40),
+                'pegawai_umur' => $faker->numberBetween(25,50),
         		'pegawai_alamat' => $faker->address,
         	]);
 
