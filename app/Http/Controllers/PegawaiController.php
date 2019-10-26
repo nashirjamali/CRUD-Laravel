@@ -31,7 +31,7 @@ class PegawaiController extends Controller
       
         // validasi input data
         $this->validate($request,[
-            'nama' => 'required|min:5|max:50',
+            'nama' => 'required|min:5|max:40',
             'jabatan' => 'required',
             'umur' => 'required|numeric',
             'alamat' => 'required|min:5|max:100'
